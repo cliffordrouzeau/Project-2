@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Questions} = require('../models')
+const Questions = require('../models/Questions');
 
 router.get('/', async (req, res) => {
 
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
   router.get('/questions', async (req, res) => {
     try {
-        const qData = await Questions.findAll({})
+        const qData = await Questions.findAll()
         const questions = qData.map((question) =>
         question.get({ plain: true})
         )
