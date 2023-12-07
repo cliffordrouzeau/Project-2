@@ -2,7 +2,6 @@ const router = require('express').Router();
 const Questions = require('../models/Questions');
 
 router.get('/', async (req, res) => {
-
   try {
     res.render('homepage')
   } catch (error) {
@@ -15,8 +14,14 @@ router.get('/', async (req, res) => {
       res.redirect('/');
       return;
     }
-  
     res.render('login');
+  });
+
+  router.post('/logout', function(req, res, next) {
+    req.logout((err)=> {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
   });
 
   router.get('/signup', (req, res) => {
@@ -24,7 +29,6 @@ router.get('/', async (req, res) => {
       res.redirect('/');
       return;
     }
-  
     res.render('signup');
   });
 

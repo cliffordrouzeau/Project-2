@@ -1,14 +1,14 @@
 const path = require('path');
-const logger = require('morgan');
 const passport = require('passport');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const authRouter = require('./controllers/api/auth');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const googlePassport = require("./config/googlePassport"); 
+const localPassport = require('./config/localPassport');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -37,15 +37,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(logger('dev'));
 
 app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', authRouter);
 app.use(routes);
 
-sequelize.sync().then(() => {
-  app.listen(PORT, () => console.log('Server is running on port', PORT));
+sequelize.sync({force: true}).then(() => {
+  app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
 });
