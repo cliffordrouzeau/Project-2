@@ -9,3 +9,11 @@ li{
  .head {
     font-size: 60px;
  }
+
+ div{
+    display: inline-block;
+ }
+
+ .disabled{
+    display: none;
+ }
