@@ -59,6 +59,11 @@ router.post('/logout', (req, res) => {
 
       router.get('/:position', async (req, res) => {
         try{
+          req.session.save(() => {
+            if(!req.session.auth){
+              req.session.auth = req.params.position
+            }
+          })
           if(req.session.userid){
             localUser.update({
               position: req.params.position
@@ -73,7 +78,7 @@ router.post('/logout', (req, res) => {
           })
         }
           res.render(`${req.params.position}`, {
-            logged_in: req.session.logged_in, auth: req.params.position
+            logged_in: req.session.logged_in, auth: req.session.auth
           })
         } catch(err) {
           console.log(err)
