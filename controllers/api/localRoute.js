@@ -26,7 +26,10 @@ router.post('/login/password',
         email: email,
         password: password,
       });
-      res.redirect('/questions');
+      req.session.save(()=>{
+        req.session.userID = newUser.id
+        res.redirect('/questions');
+      })
     } catch (error) {
       console.error(error);
       res.redirect('/signup');

@@ -59,7 +59,10 @@ if(uData.length == 50){
 			position = "Neuroticism"
 			$('#neuro').text(response.Neuroticism.description)
 		}
-		window.location.href=`/${position}`
+		fetch(`/${position}`).then(()=>{
+			console.log('route hit')
+			window.location.href = `/${position}`
+		})
 	});
 	}
     })

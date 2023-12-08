@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Questions = require('../models/Questions');
+const localUser = require('../models/localUser');
 
 router.get('/', async (req, res) => {
   try {
@@ -44,42 +45,20 @@ router.get('/', async (req, res) => {
       }
       });
 
-      router.get('/Openness', async (req, res) => {
-        try {
-          res.render('Openness')
-        } catch (error) {
-          console.error(error);
-        }
-        });
+      router.get('/:position', async (req, res) => {
+        try{
 
-        router.get('/Conscientiousness', async (req, res) => {
-          try {
-            res.render('Conscientiousness')
-          } catch (error) {
-            console.error(error);
-          }
-          });
-          router.get('/Extroversion', async (req, res) => {
-            try {
-              res.render('Extroversion')
-            } catch (error) {
-              console.error(error);
-            }
-            });
-            router.get('/Agreeableness', async (req, res) => {
-              try {
-                res.render('Agreeableness')
-              } catch (error) {
-                console.error(error);
-              }
-              });
-              router.get('/Neuroticism', async (req, res) => {
-                try {
-                  res.render('Neuroticism')
-                } catch (error) {
-                  console.error(error);
-                }
-                });
+          localUser.update({
+            position: req.params.position
+          },{
+            where:{id: req.session.passport.user.id}
+          })
+          res.render(`${req.params.position}`)
+        } catch(err) {
+          console.log(err)
+
+        }
+      })
           
   module.exports = router;
   
