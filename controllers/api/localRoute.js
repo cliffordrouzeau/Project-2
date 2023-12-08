@@ -1,13 +1,12 @@
-const passport = require('passport');
+const passport = require('../../config/localPassport');
 const {localUser} = require('../../models');
 const router = require('express').Router();
-const bcrypt = require('bcrypt')
 
 router.post('/login/password',
-  passport.authenticate('local', { 
-    successRedirect: '/',
-    failureRedirect: '/signup',
-   })
+  passport.authenticate('local'), (req, res) => {
+    res.redirect('/')
+  }
+
 );
 
   router.post('/signup', async (req, res) => {
@@ -25,7 +24,7 @@ router.post('/login/password',
       const newUser = await localUser.create({
         username: username,
         email: email,
-        password: await bcrypt.hash(password, 10),
+        password: password,
       });
       res.redirect('/questions');
     } catch (error) {
