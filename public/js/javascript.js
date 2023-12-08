@@ -10,7 +10,10 @@ $(document).ready(() => {
     $('button').addClass('disabled')
     $('.start').removeClass('disabled')
     $('.end').removeClass('disabled')
-
+	$('#logout').removeClass('disabled')
+	$('.login').removeClass('disabled')
+	$('.signup').removeClass('disabled')
+	
     $(sBtn).click(function() {
         $("#question1>button.disabled").removeClass("disabled");
     })

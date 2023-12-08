@@ -3,17 +3,7 @@
 </div>
 <div class="card-deck">
 {{#each questions as |q|}}
-<div class="card text-center justify-content-center w-25">
-  <div class="card-body" id='question{{q.id}}' data-id={{q.id}}>
-    <h5 class="card-title">Question {{q.id}}</h5>
-    <p class="card-text">{{q.question}}</p>
-    <button type="button" class="btn btn-primary btn-sm" id="1">1</button>
-    <button type="button" class="btn btn-primary btn-sm" id="2">2</button>
-    <button type="button" class="btn btn-primary btn-sm" id="3">3</button>
-    <button type="button" class="btn btn-primary btn-sm" id="4">4</button>
-    <button type="button" class="btn btn-primary btn-sm" id="5">5</button>
-  </div>
-</div>
+    {{> questions-details}}
 {{/each}}
 </div>
 <div>
