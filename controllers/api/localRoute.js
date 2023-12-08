@@ -4,9 +4,21 @@ const router = require('express').Router();
 
 router.post('/login/password',
   passport.authenticate('local'), (req, res) => {
-    res.redirect('/')
+    if(req.isAuthenticated){
+      req.session.save(() => {
+        req.session.logged_in = true;
+        if(req.user.position == "Openness" || "Agreeableness" || "Extroversion" || "Neuroticism" || "Conscientiousness")
+        req.session.auth = req.user.position
+        if(req.user.position == null){
+          res.redirect('/questions')
+        }else {
+          res.redirect(`/${req.user.position}`)
+        }
+        console.log(req.session.logged_in)
+        console.log(req.user.position)
+      });
+    } 
   }
-
 );
 
   router.post('/signup', async (req, res) => {
@@ -27,7 +39,8 @@ router.post('/login/password',
         password: password,
       });
       req.session.save(()=>{
-        req.session.userID = newUser.id
+        req.session.logged_in = true;
+        req.session.userid = newUser.id
         res.redirect('/questions');
       })
     } catch (error) {

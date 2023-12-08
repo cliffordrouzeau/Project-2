@@ -19,15 +19,22 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home</a>
       </li>
+     {{#if auth}}
+                 <li class="nav-item active">
+        <a class="nav-link" href = "/{{auth}}" >{{auth}}</a>
+      {{else}}
+      {{/if}}
+      {{#if logged_in}}
+      {{else}}
       <li class="nav-item active">
         <a class="nav-link" href="/signup">Signup</a>
       </li>
+      {{/if}}
       <li class="nav-item">
-        <a class="nav-link" href="/questions">Questions</a>
-      </li>
-      <li class="nav-item">
-         {{#if loggedIn}}
+         {{#if logged_in}}
+         <form  action="/logout" method="post" >
     <button id="logout">Logout</button>
+    </form>
     {{else}}
     <a class="nav-link" href="/login">Login</a>
     {{/if}}
