@@ -31,7 +31,11 @@ LocalUser.init(
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        position: {
+          type: DataTypes.STRING,
+          allowNull: true,
+      }
     },
     {
         hooks: {
