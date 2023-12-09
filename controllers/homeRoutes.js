@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Questions = require('../models/Questions');
 const localUser = require('../models/localUser');
+const loginAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
   try {
@@ -44,7 +45,7 @@ router.post('/logout', (req, res) => {
     });
   });
 
-  router.get('/questions', async (req, res) => {
+  router.get('/questions',loginAuth, async (req, res) => {
     if (req.session.logged_in) try {
         const qData = await Questions.findAll()
         const questions = qData.map((question) =>
@@ -58,7 +59,7 @@ router.post('/logout', (req, res) => {
       }
       });
 
-      router.get('/:position', async (req, res) => {
+      router.get('/:position', loginAuth, async (req, res) => {
         try{
           req.session.save(() => {
                 req.session.auth = req.params.position
