@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       logged_in: req.session.logged_in, auth: req.session.auth
     });
+    console.log(req.session.auth)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,10 +61,8 @@ router.post('/logout', (req, res) => {
       router.get('/:position', async (req, res) => {
         try{
           req.session.save(() => {
-            if(!req.session.auth){
-              req.session.auth = req.params.position
-            }
-          })
+                req.session.auth = req.params.position
+              })
           if(req.session.userid){
             localUser.update({
               position: req.params.position
@@ -85,6 +84,71 @@ router.post('/logout', (req, res) => {
 
         }
       })
+
+      // router.get('/Agreeableness', (req, res) => {
+      //   if (!req.session.logged_in) {
+      //     res.redirect('/');
+      //     return;
+      //   }
+      //   req.session.save(() => {
+      //     req.session.auth = "Agreeableness"
+      //   })
+      //   res.render('Agreeableness', {
+      //     logged_in: req.session.logged_in, auth: req.session.auth
+      //   });
+      // });
+
+      // router.get('/Conscientiousness', (req, res) => {
+      //   if (!req.session.logged_in) {
+      //     res.redirect('/');
+      //     return;
+      //   }
+      //   req.session.save(() => {
+      //     req.session.auth = "Conscientiousness"
+      //   })
+      //   res.render('Conscientiousness', {
+      //     logged_in: req.session.logged_in, auth: req.session.auth
+      //   });
+      // });
+
+      // router.get('/Extroversion', (req, res) => {
+      //   if (!req.session.logged_in) {
+      //     res.redirect('/');
+      //     return;
+      //   }
+      //   req.session.save(() => {
+      //     req.session.auth = "Extroversion"
+      //   })
+      //   res.render('Extroversion', {
+      //     logged_in: req.session.logged_in, auth: req.session.auth
+      //   });
+      // });
+
+      // router.get('/Neurotiscism', (req, res) => {
+      //   if (!req.session.logged_in) {
+      //     res.redirect('/');
+      //     return;
+      //   }
+      //   req.session.save(() => {
+      //     req.session.auth = "Neurotiscism"
+      //   })
+      //   res.render('Neurotiscism', {
+      //     logged_in: req.session.logged_in, auth: req.session.auth
+      //   });
+      // });
+
+      // router.get('/Openness', (req, res) => {
+      //   if (!req.session.logged_in) {
+      //     res.redirect('/');
+      //     return;
+      //   }
+      //   req.session.save(() => {
+      //     req.session.auth = "Openness"
+      //   })
+      //   res.render('Openness', {
+      //     logged_in: req.session.logged_in, auth: req.session.auth
+      //   });
+      // });
      
   module.exports = router;
   
