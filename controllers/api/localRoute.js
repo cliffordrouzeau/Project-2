@@ -41,6 +41,7 @@ router.post('/login/password',
       req.session.save(()=>{
         req.session.logged_in = true;
         req.session.userid = newUser.id
+        req.session.auth = ""
         res.redirect('/questions');
       })
     } catch (error) {
