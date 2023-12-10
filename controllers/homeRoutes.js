@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const Questions = require('../models/Questions');
+const Questions = require('../models/questions');
 const localUser = require('../models/localUser');
+const googleUser = require('../models/googleUser');
 const loginAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
@@ -61,7 +62,6 @@ router.post('/logout', (req, res) => {
 
       router.get('/:position', loginAuth, async (req, res) => {
         try{
-          console.log(req.params)
           req.session.save(() => {
                 req.session.auth = req.params.position
               })
@@ -72,10 +72,10 @@ router.post('/logout', (req, res) => {
               where:{id: req.session.userid}
             })
         } else {
-          localUser.update({
+          googleUser.update({
             position: req.params.position
           },{
-            where:{id: req.session.passport.user.id}
+            where:{id: req.session.google}
           })
         }
           res.render(`${req.params.position}`, {
