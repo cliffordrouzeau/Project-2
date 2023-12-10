@@ -19,6 +19,10 @@ GoogleUser.init (
         profilePic: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        position: {
+            type: DataTypes.STRING,
+            allowNull: true,
         }
     },
     {

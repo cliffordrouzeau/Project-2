@@ -34,7 +34,7 @@ $(nQuestion).children().removeClass("disabled");
 	method: 'POST',
 	headers: {
 		'content-type': 'application/json',
-		'X-RapidAPI-Key': 'bba587b913msh8270a82b87c5413p1bd8a3jsn32bf2609adc6',
+		'X-RapidAPI-Key': 'd98e96b3c5mshd4745ad9a5ba3dfp1e7919jsna7e4878bcd1a',
 		'X-RapidAPI-Host': 'big-five-personality-test.p.rapidapi.com'
 	},
 	processData: false,
