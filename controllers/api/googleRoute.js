@@ -13,7 +13,6 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
       console.log(googleUser);
       console.log(googleUserAuth);
         req.session.save(() => {
-          req.session.auth = ""
           req.session.google = googleUser
           req.session.logged_in = true;
           if(googleUserAuth == "Openness" || "Agreeableness" || "Extroversion" || "Neuroticism" || "Conscientiousness")

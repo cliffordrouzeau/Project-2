@@ -62,7 +62,7 @@ if(uData.length == 50){
 			position = "Neuroticism"
 			$('#neuro').text(response.Neuroticism.description)
 		}
-		fetch(`/${position}`).then(()=>{
+		fetch(`api/local/${position}`).then(()=>{
 			console.log(`${position}`)
 			window.location.href = `/${position}`
 		})
