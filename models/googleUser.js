@@ -12,8 +12,9 @@ GoogleUser.init (
             primaryKey: true,
             autoIncrement: true
         },
-        displayName: {
+        username: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         profilePic: {

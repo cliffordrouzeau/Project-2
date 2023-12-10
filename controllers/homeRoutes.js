@@ -3,6 +3,7 @@ const Questions = require('../models/questions');
 const localUser = require('../models/localUser');
 const googleUser = require('../models/googleUser');
 const loginAuth = require('../utils/auth')
+const blogpost = require('../models/BlogPost')
 
 router.get('/', async (req, res) => {
   try {
@@ -60,55 +61,115 @@ router.post('/logout', (req, res) => {
       }
       });
 
-      router.get('/Agreeableness', (req, res) => {
+      router.get('/Agreeableness', async (req, res) => {
         if (!req.session.logged_in) {
           res.redirect('/');
           return;
         }
-        res.render('Agreeableness', {
-          logged_in: req.session.logged_in, auth: req.session.auth
+        if (req.session.logged_in) try {
+          const bData = await blogpost.findAll({
+            where: {
+              position: "Agreeableness"
+            }
+          })
+          const post = bData.map((blog) =>
+          blog.get({ plain: true})
+          )
+          res.render('Agreeableness', {
+            logged_in: req.session.logged_in, auth: req.session.auth, post
+          })
+        } catch (error) {
+          console.error(error);
+        }
         });
-      });
 
-      router.get('/Conscientiousness', (req, res) => {
-        if (!req.session.logged_in) {
-          res.redirect('/');
-          return;
-        }
-        res.render('Conscientiousness', {
-          logged_in: req.session.logged_in, auth: req.session.auth
-        });
-      });
+        router.get('/Extroversion', async (req, res) => {
+          if (!req.session.logged_in) {
+            res.redirect('/');
+            return;
+          }
+          if (req.session.logged_in) try {
+            const bData = await blogpost.findAll({
+              where: {
+                position: "Extroversion"
+              }
+            })
+            const post = bData.map((blog) =>
+            blog.get({ plain: true})
+            )
+            res.render('Extroversion', {
+              logged_in: req.session.logged_in, auth: req.session.auth, post
+            })
+          } catch (error) {
+            console.error(error);
+          }
+          });
 
-      router.get('/Extroversion', (req, res) => {
-        if (!req.session.logged_in) {
-          res.redirect('/');
-          return;
-        }
-        res.render('Extroversion', {
-          logged_in: req.session.logged_in, auth: req.session.auth
-        });
-      });
+          router.get('/Neuroticism', async (req, res) => {
+            if (!req.session.logged_in) {
+              res.redirect('/');
+              return;
+            }
+            if (req.session.logged_in) try {
+              const bData = await blogpost.findAll({
+                where: {
+                  position: "Neuroticism"
+                }
+              })
+              const post = bData.map((blog) =>
+              blog.get({ plain: true})
+              )
+              res.render('Neuroticism', {
+                logged_in: req.session.logged_in, auth: req.session.auth, post
+              })
+            } catch (error) {
+              console.error(error);
+            }
+            });
 
-      router.get('/Neuroticism', (req, res) => {
-        if (!req.session.logged_in) {
-          res.redirect('/');
-          return;
-        }
-        res.render('Neuroticism', {
-          logged_in: req.session.logged_in, auth: req.session.auth
-        });
-      });
+            router.get('/Openness', async (req, res) => {
+              if (!req.session.logged_in) {
+                res.redirect('/');
+                return;
+              }
+              if (req.session.logged_in) try {
+                const bData = await blogpost.findAll({
+                  where: {
+                    position: "Openness"
+                  }
+                })
+                const post = bData.map((blog) =>
+                blog.get({ plain: true})
+                )
+                res.render('Openness', {
+                  logged_in: req.session.logged_in, auth: req.session.auth, post
+                })
+              } catch (error) {
+                console.error(error);
+              }
+              });
 
-      router.get('/Openness', (req, res) => {
-        if (!req.session.logged_in) {
-          res.redirect('/');
-          return;
-        }
-        res.render('Openness', {
-          logged_in: req.session.logged_in, auth: req.session.auth
-        });
-      });
+              router.get('/Conscientiousness', async (req, res) => {
+                if (!req.session.logged_in) {
+                  res.redirect('/');
+                  return;
+                }
+                if (req.session.logged_in) try {
+                  const bData = await blogpost.findAll({
+                    where: {
+                      position: "Conscientiousness"
+                    }
+                  })
+                  const post = bData.map((blog) =>
+                  blog.get({ plain: true})
+                  )
+                  res.render('Conscientiousness', {
+                    logged_in: req.session.logged_in, auth: req.session.auth, post
+                  })
+                } catch (error) {
+                  console.error(error);
+                }
+                });
      
   module.exports = router;
   
