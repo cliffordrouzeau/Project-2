@@ -2,6 +2,7 @@ const passport = require('../../config/localPassport');
 const {localUser} = require('../../models');
 const router = require('express').Router();
 const loginAuth = require('../../utils/auth')
+const googleUser = require('../../models/googleUser');
 
 router.post('/login/password',
   passport.authenticate('local'), (req, res) => {
@@ -55,7 +56,6 @@ router.post('/login/password',
       req.session.save(() => {
             req.session.auth = req.params.position
           })
-          console.log(req.session.auth)
       if(req.session.userid){
         localUser.update({
           position: req.params.position
