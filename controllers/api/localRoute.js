@@ -1,6 +1,7 @@
 const passport = require('../../config/localPassport');
 const {localUser} = require('../../models');
 const router = require('express').Router();
+const loginAuth = require('../../utils/auth')
 
 router.post('/login/password',
   passport.authenticate('local'), (req, res) => {
@@ -41,7 +42,6 @@ router.post('/login/password',
       req.session.save(()=>{
         req.session.logged_in = true;
         req.session.userid = newUser.id
-        req.session.auth = ""
         res.redirect('/questions');
       })
     } catch (error) {
@@ -49,5 +49,33 @@ router.post('/login/password',
       res.redirect('/signup');
     }
   });
+
+  router.get('/:position', loginAuth, async (req, res) => {
+    try{
+      req.session.save(() => {
+            req.session.auth = req.params.position
+          })
+          console.log(req.session.auth)
+      if(req.session.userid){
+        localUser.update({
+          position: req.params.position
+        },{
+          where:{id: req.session.userid}
+        })
+    } else {
+      googleUser.update({
+        position: req.params.position
+      },{
+        where:{id: req.session.google}
+      })
+    }
+      res.render(`${req.params.position}`, {
+        logged_in: req.session.logged_in, auth: req.session.auth
+      })
+    } catch(err) {
+      console.log(err)
+
+    }
+  })
 
 module.exports = router;
