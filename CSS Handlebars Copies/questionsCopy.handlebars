@@ -1,0 +1,26 @@
+<body class="noBackground">
+<div class="text-center">
+  <button type="button" class="btn btn-info btn-lg start">Click to Start Quiz</button>
+</div>
+
+<div class="d-flex justify-content-center">
+<div class="card-deck">
+  {{#each questions as |q|}}
+    <div class="card text-center justify-content-center">
+      <div class="card-body" id="question{{q.id}}" data-id={{q.id}}>
+        <h5 class="card-title p-2 pt-3">Question {{q.id}}</h5>
+        <p class="card-text p-1">{{q.question}}</p>
+        <button type="button" class="shadow ansBtn btn btn-info btn-sm" id="1">1</button>
+        <button type="button" class="shadow ansBtn btn btn-info btn-sm" id="2">2</button>
+        <button type="button" class="shadow ansBtn btn btn-info btn-sm" id="3">3</button>
+        <button type="button" class="shadow ansBtn btn btn-info btn-sm" id="4">4</button>
+        <button type="button" class="shadow ansBtn btn btn-info btn-sm" id="5">5</button>
+      </div>
+    </div>
+  {{/each}}
+</div>
+</div>
+<div class="text-center">
+  <button type="button" class="btn btn-info btn-lg end">Submit</button>
+</div>
+</body>
