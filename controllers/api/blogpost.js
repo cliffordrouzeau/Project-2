@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     try {
         if(req.session.google){
             const post = await blogpost.create({
-                username: req.session.id,
+              user_id: req.session.id,
                 name: name,
                 subject: subject,
                 description: description,
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
               });
         } else {
             const post = await blogpost.create({
-                username: req.session.google,
+              user_id: req.session.google,
                 name: name,
                 subject: subject,
                 description: description,
