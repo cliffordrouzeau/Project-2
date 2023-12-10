@@ -7,7 +7,7 @@ const blogpost = require('../../models/BlogPost')
 router.post('/', async (req, res) => {
     const { name, subject, description, position } = req.body;
     try {
-        if(req.session.google){
+        if(req.session.userid){
             const post = await blogpost.create({
               user_id: req.session.id,
                 name: name,
