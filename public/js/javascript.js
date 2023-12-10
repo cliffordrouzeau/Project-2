@@ -63,7 +63,7 @@ if(uData.length == 50){
 			$('#neuro').text(response.Neuroticism.description)
 		}
 		fetch(`/${position}`).then(()=>{
-			console.log('route hit')
+			console.log(`${position}`)
 			window.location.href = `/${position}`
 		})
 	});

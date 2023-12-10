@@ -61,6 +61,7 @@ router.post('/logout', (req, res) => {
 
       router.get('/:position', loginAuth, async (req, res) => {
         try{
+          console.log(req.params)
           req.session.save(() => {
                 req.session.auth = req.params.position
               })
