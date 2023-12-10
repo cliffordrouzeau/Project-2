@@ -14,10 +14,6 @@ li{
     display: inline-block;
  }
 
- .disabled{
-    display: none;
- } */
-
  /* Google font applied to the webpage */
 * {
    font-family: "Josefin Sans", sans-serif;
@@ -168,3 +164,6 @@ li{
    opacity: 8%;
  }
  
+ .disabled{
+  display: none;
+}

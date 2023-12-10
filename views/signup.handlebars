@@ -1,17 +1,22 @@
-{{!-- Sign Up if new --}}
 <h1>Sign up</h1>
 <form action="/api/local/signup" method="post">
-    <section>
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" autocomplete="username" required>
+    <section class="mt-2 mb-3">
+        <div class="form-floating">
+            <input id="username" class="form-control col-6" name="username" type="text" autocomplete="username" required>
+            <label for="username">Username</label>
+        </div>
     </section>
-        <section>
-        <label for="email">Email</label>
-        <input id="emaail" name="email" type="text" autocomplete="email" required>
+    <section class="mb-3">
+        <div class="form-floating">
+            <input id="email" class="form-control col-6" name="email" type="text" autocomplete="email" required>
+            <label for="email">Email</label>
+        </div>
     </section>
-    <section>
-        <label for="new-password">Password</label>
-        <input id="new-password" name="password" type="password" autocomplete="new-password" required>
+    <section class="mb-3">
+        <div class="form-floating">
+            <input id="new-password" class="form-control col-6" name="password" type="password" autocomplete="new-password" required>
+            <label for="new-password">Password</label>
+        </div>
     </section>
-    <button class="signup" type="submit">Sign up</button>
+    <button type="submit" class="btn btn-info btn-lg signup">Sign up</button>
 </form>
