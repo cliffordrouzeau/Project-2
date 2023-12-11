@@ -66,7 +66,7 @@ router.post('/logout', (req, res) => {
           res.redirect('/');
           return;
         }
-        if (req.session.logged_in) try {
+        if (req.session.auth) try {
           const bData = await blogpost.findAll({
             where: {
               position: "Agreeableness"
@@ -88,7 +88,7 @@ router.post('/logout', (req, res) => {
             res.redirect('/');
             return;
           }
-          if (req.session.logged_in) try {
+          if (req.session.auth) try {
             const bData = await blogpost.findAll({
               where: {
                 position: "Extroversion"
@@ -110,7 +110,7 @@ router.post('/logout', (req, res) => {
               res.redirect('/');
               return;
             }
-            if (req.session.logged_in) try {
+            if (req.session.auth) try {
               const bData = await blogpost.findAll({
                 where: {
                   position: "Neuroticism"
@@ -132,7 +132,7 @@ router.post('/logout', (req, res) => {
                 res.redirect('/');
                 return;
               }
-              if (req.session.logged_in) try {
+              if (req.session.auth) try {
                 const bData = await blogpost.findAll({
                   where: {
                     position: "Openness"
@@ -150,7 +150,7 @@ router.post('/logout', (req, res) => {
               });
 
               router.get('/Conscientiousness', async (req, res) => {
-                if (!req.session.logged_in) {
+                if (!req.session.auth) {
                   res.redirect('/');
                   return;
                 }

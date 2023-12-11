@@ -1,0 +1,31 @@
+<form action="/api/blogpost/" method="post">
+    <section class="mt-2 mb-3">
+        <div class="form-floating">
+            <input id="name" class="form-control col-6" name="name" type="text" autocomplete="name" required>
+            <label for="name">name</label>
+        </div>
+    </section>
+    <section class="mb-3">
+        <div class="form-floating">
+            <input id="subject" class="form-control col-6" name="subject" type="text" autocomplete="subject" required>
+            <label for="subject">subject</label>
+        </div>
+    </section>
+    <section class="mb-3">
+        <div class="form-floating">
+            <input id="description" class="form-control col-6" name="description" type="text" autocomplete="description" required>
+            <label for="description">description</label>
+        </div>
+    </section>
+    <section>
+    <select  id="position" class="form-control col-6" name="position" autocomplete="position" required>
+        <option value="Agreeableness">Agreeableness</option>
+        <option value="Extroversion">Extroversion</option>
+        <option value="Neuroticism">Neuroticism</option>
+        <option value="Openness">Openness</option>
+        <option value="Conscientiousness">Conscientiousness</option>
+        <label for="position">Position:</label><br>
+    </select><br><br>
+  </section>
+    <button type="submit" class="btn btn-info btn-lg signup">post</button>
+</form>

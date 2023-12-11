@@ -12,7 +12,7 @@ GoogleUser.init (
             primaryKey: true,
             autoIncrement: true
         },
-        username: {
+        displayName: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false

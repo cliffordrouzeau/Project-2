@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 router.use('/google', googleRoute);
 router.use('/local', localRoute);
-router.use('/local', blogpost);
+router.use('/blogpost', blogpost);
 
 
 module.exports = router;
