@@ -13,6 +13,7 @@ $(document).ready(() => {
 	$('#logout').removeClass('disabled')
 	$('.login').removeClass('disabled')
 	$('.signup').removeClass('disabled')
+	$('.commentSubmit').removeClass('disabled')
 	
     $(sBtn).click(function() {
         $("#question1>button.disabled").removeClass("disabled");
