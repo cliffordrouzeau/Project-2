@@ -10,6 +10,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const googlePassport = require("./config/googlePassport"); 
 const localPassport = require('./config/localPassport');
 
+
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 

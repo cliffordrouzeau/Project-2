@@ -65,7 +65,7 @@ if(uData.length == 50){
 		}
 		fetch(`api/local/${position}`).then(()=>{
 			console.log(`${position}`)
-			window.location.href = `/${position}`
+			window.location.replace(`/${position}`)
 		})
 	});
 	}
