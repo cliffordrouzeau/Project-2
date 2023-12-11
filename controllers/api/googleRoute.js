@@ -1,11 +1,11 @@
 const passport = require('passport');
 const router = require('express').Router();
 
-router.get('/auth/google', passport.authenticate('google', {
+router.get('/auth', passport.authenticate('google', {
     scope: ['profile']
 }));
 
-router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
+router.get('/auth/gauth/redirect', passport.authenticate('google'), (req, res) => {
     if(req.isAuthenticated){
       const googleUser = req.user[0].dataValues.id;
       const googleUserAuth = req.user[0].dataValues.position;
