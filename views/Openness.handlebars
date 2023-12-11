@@ -1,7 +1,7 @@
 <div class="container centerBlogContent">
-  <div class="col-lg-9 p-3">
+  <div class="col-lg-9 mx-auto p-3">
     <div class="blogHeader">
-      <h1 class="border-bottom text-center p-3">Blog Posts</h1>
+      <h1 class="border-bottom mx-text-center p-3">Blog Posts</h1>
     </div>
     <ul class="list-group list-group-flush rounded border">
     {{#each post as |p|}}
@@ -12,34 +12,37 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 offset-lg-1">
 <form action="/api/blogpost/" method="post">
-    <section class="mt-2 mb-3">
+    <section class="mt-2 mb-2">
         <div class="form-floating">
             <input id="name" class="form-control col-6" name="name" type="text" autocomplete="name" required>
-            <label for="name">name</label>
+            <label for="name">Name</label>
         </div>
     </section>
-    <section class="mb-3">
+    <section class="mb-2">
         <div class="form-floating">
             <input id="subject" class="form-control col-6" name="subject" type="text" autocomplete="subject" required>
-            <label for="subject">subject</label>
+            <label for="subject">Subject</label>
         </div>
     </section>
-    <section class="mb-3">
+    <section class="mb-2">
         <div class="form-floating">
             <input id="description" class="form-control col-6" name="description" type="text" autocomplete="description" required>
-            <label for="description">description</label>
+            <label for="description">Description</label>
         </div>
     </section>
     <section>
-    <select  id="position" class="form-control col-6" name="position" autocomplete="position" required>
+    <select  id="position" class="form-control" name="position" autocomplete="position" required>
         <option value="Agreeableness">Agreeableness</option>
         <option value="Extroversion">Extroversion</option>
         <option value="Neuroticism">Neuroticism</option>
         <option value="Openness">Openness</option>
         <option value="Conscientiousness">Conscientiousness</option>
         <label for="position">Position:</label><br>
-    </select><br><br>
+    </select>
   </section>
-    <button type="submit" class="btn btn-info btn-lg signup">post</button>
+    <button type="submit" class="btn btn-info btn-lg signup mt-1">Post a Comment!</button>
 </form>
