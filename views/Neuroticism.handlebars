@@ -17,11 +17,15 @@
             <label for="description">description</label>
         </div>
     </section>
-    <section class="mb-3">
-        <div class="form-floating">
-            <input id="position" class="form-control col-6" name="position" type="text" autocomplete="position" required>
-            <label for="position">position</label>
-        </div>
-    </section>
+    <section>
+    <select  id="position" class="form-control col-6" name="position" autocomplete="position" required>
+        <option value="Agreeableness">Agreeableness</option>
+        <option value="Extroversion">Extroversion</option>
+        <option value="Neuroticism">Neuroticism</option>
+        <option value="Openness">Openness</option>
+        <option value="Conscientiousness">Conscientiousness</option>
+        <label for="position">Position:</label><br>
+    </select><br><br>
+  </section>
     <button type="submit" class="btn btn-info btn-lg signup">post</button>
 </form>
