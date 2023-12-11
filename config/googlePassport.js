@@ -6,7 +6,7 @@ require('dotenv').config();
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/api/google/auth/google/redirect'
+    callbackURL: '/api/auth/gauth/redirect'
 }, (accessToken, refreshToken, profile, cb) => {
     // console.log('profile:', profile);
     googleUser.findOrCreate({
