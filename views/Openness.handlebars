@@ -3,7 +3,6 @@
     <div class="blogHeader">
       <h1 class="border-bottom mx-text-center p-3">Blog Posts</h1>
     </div>
-    <ul class="list-group list-group-flush rounded border">
     {{#each post as |p|}}
     {{> blogpost-details}}
 {{/each}}
@@ -18,31 +17,33 @@
 <form action="/api/blogpost/" method="post">
     <section class="mt-2 mb-2">
         <div class="form-floating">
-            <input id="name" class="form-control col-6" name="name" type="text" autocomplete="name" required>
+            <input id="name" class="form-control col-6" name="name" type="text" autocomplete="name" required="">
             <label for="name">Name</label>
         </div>
     </section>
     <section class="mb-2">
         <div class="form-floating">
-            <input id="subject" class="form-control col-6" name="subject" type="text" autocomplete="subject" required>
+            <input id="subject" class="form-control col-6" name="subject" type="text" autocomplete="subject" required="">
             <label for="subject">Subject</label>
         </div>
     </section>
     <section class="mb-2">
         <div class="form-floating">
-            <input id="description" class="form-control col-6" name="description" type="text" autocomplete="description" required>
+            <input id="description" class="form-control col-6" name="description" type="text" autocomplete="description" required="">
             <label for="description">Description</label>
         </div>
     </section>
     <section>
-    <select  id="position" class="form-control" name="position" autocomplete="position" required>
+    <select id="position" class="form-control" name="position" autocomplete="position" required="">
         <option value="Agreeableness">Agreeableness</option>
         <option value="Extroversion">Extroversion</option>
         <option value="Neuroticism">Neuroticism</option>
         <option value="Openness">Openness</option>
         <option value="Conscientiousness">Conscientiousness</option>
-        <label for="position">Position:</label><br>
+        Position:
     </select>
   </section>
     <button type="submit" class="btn btn-info btn-lg signup mt-1">Post a Comment!</button>
 </form>
+    </div>
+  </div></div>
