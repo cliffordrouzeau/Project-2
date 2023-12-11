@@ -15,7 +15,7 @@ Blogpost.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Subject: {
+    subject: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -31,14 +31,7 @@ Blogpost.init(
     position: {
       type: DataTypes.STRING,
       allowNull: false,
-  },
-  user_id: {
-    type: DataTypes.STRING,
-    references: {
-      model: ('localUsers', 'googleUsers'),
-      key: 'username',
-    },
-}
+  }
   },
   {
     sequelize,

@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
                 position: position,
               });
         }
-      
+        res.redirect('/');
     } catch (error) {
       console.error(error);
     }
