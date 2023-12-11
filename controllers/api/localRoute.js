@@ -57,13 +57,13 @@ router.post('/login/password',
             req.session.auth = req.params.position
           })
       if(req.session.userid){
-        localUser.update({
+       await localUser.update({
           position: req.params.position
         },{
           where:{id: req.session.userid}
         })
     } else {
-      googleUser.update({
+      await googleUser.update({
         position: req.params.position
       },{
         where:{id: req.session.google}

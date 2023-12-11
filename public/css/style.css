@@ -167,3 +167,7 @@ li{
  .disabled{
   display: none;
 }
+
+.figure{
+  display: flex;
+}
