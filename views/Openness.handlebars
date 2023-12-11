@@ -4,35 +4,42 @@
       <h1 class="border-bottom text-center p-3">Blog Posts</h1>
     </div>
     <ul class="list-group list-group-flush rounded border">
-      <li class="list-group-item rounded border shadow">
-        <h2 class="text-md">Subject</h2>
-        <p class="text-sm"><strong>Posted by:</strong> user at date</p>
-        <p class="text-sm">description</p>
-      </li>
-      <li class="list-group-item rounded border shadow">
-        <h2 class="text-md">Subject</h2>
-        <p class="text-sm"><strong>Posted by:</strong> user at date</p>
-        <p class="text-sm">description</p>
-      </li>
+    {{#each post as |p|}}
+    {{> blogpost-details}}
+{{/each}}
       <!-- Blog Posts are added here -->
     </ul>
   </div>
 </div>
 
-<div class="container">
-  <div class="row justify-content-end">
-    <div class="col-lg-6">
-      <form id="commentForm">
-        <div class="form-group">
-          <label for="subjectInput">Subject:</label>
-          <input type="text" class="form-control commentBox" id="subjectInput" name="subject" placeholder="Enter the subject">
+<form action="/api/blogpost/" method="post">
+    <section class="mt-2 mb-3">
+        <div class="form-floating">
+            <input id="name" class="form-control col-6" name="name" type="text" autocomplete="name" required>
+            <label for="name">name</label>
         </div>
-        <div class="form-group">
-          <label for="commentInput">Leave a comment:</label>
-          <textarea class="form-control commentBox" id="commentInput" name="comment" rows="3" placeholder="Type your comment here..."></textarea>
+    </section>
+    <section class="mb-3">
+        <div class="form-floating">
+            <input id="subject" class="form-control col-6" name="subject" type="text" autocomplete="subject" required>
+            <label for="subject">subject</label>
         </div>
-        <button type="submit" class="commentSubmit btn btn-info mb-4 align-self-end">Post a Comment!</button>
-      </form>
-    </div>
-  </div>
-</div>
+    </section>
+    <section class="mb-3">
+        <div class="form-floating">
+            <input id="description" class="form-control col-6" name="description" type="text" autocomplete="description" required>
+            <label for="description">description</label>
+        </div>
+    </section>
+    <section>
+    <select  id="position" class="form-control col-6" name="position" autocomplete="position" required>
+        <option value="Agreeableness">Agreeableness</option>
+        <option value="Extroversion">Extroversion</option>
+        <option value="Neuroticism">Neuroticism</option>
+        <option value="Openness">Openness</option>
+        <option value="Conscientiousness">Conscientiousness</option>
+        <label for="position">Position:</label><br>
+    </select><br><br>
+  </section>
+    <button type="submit" class="btn btn-info btn-lg signup">post</button>
+</form>

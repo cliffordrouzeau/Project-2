@@ -1,3 +1,18 @@
+
+<div class="container centerBlogContent">
+  <div class="col-lg-9 p-3">
+    <div class="blogHeader">
+      <h1 class="border-bottom text-center p-3">Blog Posts</h1>
+    </div>
+    <ul class="list-group list-group-flush rounded border">
+    {{#each post as |p|}}
+    {{> blogpost-details}}
+{{/each}}
+      <!-- Blog Posts are added here -->
+    </ul>
+  </div>
+</div>
+
 <form action="/api/blogpost/" method="post">
     <section class="mt-2 mb-3">
         <div class="form-floating">
