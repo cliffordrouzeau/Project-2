@@ -17,8 +17,9 @@ This is the creation of a website dedicated to organizing users into groups with
 3. Run the application.
 
 --------------------------------------------------------------------------------------------------------------------
-Title of screen shot
-![file name](https://to_file)
+##  Screenshots
+![Quiz](./assets/project2ss.png)
+![Blog](./assets/project2ss2.png)
 
 
 ## Contributing
@@ -29,15 +30,18 @@ This project is created for educational purposes.
 
 ## Authors
 
-Clifford Rouzzeau
+Clifford Rouzeau
 
 Jacob Rahmann Fratti
 
-Ryan Caltabino 
+Ryan Caltabiano 
 
 Ted Fleuriscat
 
 Myles Vaughn 
+
+## Link to Application
+[Heroku](https://class-project-2-406702-14426cf875e9.herokuapp.com/)
 
 ## License 
 MIT 
